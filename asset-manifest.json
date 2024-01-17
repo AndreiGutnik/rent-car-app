@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/rent-car-app/static/js/main.e64006c2.js",
+    "index.html": "/rent-car-app/index.html",
+    "main.e64006c2.js.map": "/rent-car-app/static/js/main.e64006c2.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.e64006c2.js"
+  ]
+}
