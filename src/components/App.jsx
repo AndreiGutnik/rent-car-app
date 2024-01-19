@@ -6,17 +6,8 @@ import { GlobalStyle } from './GlobalStyle';
 import HomePage from 'pages/HomePage/HomePage';
 import CatalogPage from 'pages/CatalogPage/CatalogPage';
 import FavoritesPage from 'pages/FavoritesPage/FavoritesPage';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { fetchCars } from 'redux/cars/cars-operations';
 
 export const App = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchCars());
-  }, [dispatch]);
-
   return (
     <>
       <Routes>

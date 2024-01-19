@@ -5,13 +5,23 @@ import Loader from 'components/Loader/Loader';
 import { Error } from 'components/Error/Error.styled';
 import { ScrollUp } from 'components/ScrollUp/ScrollUp';
 import { animateScroll as scroll } from 'react-scroll';
-import { useState } from 'react';
-
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchCars } from 'redux/cars/cars-operations';
+import { LoadMoreButton } from 'components/LoadMoreButton/LoadMoreButton';
 const { Container } = require('components/Container');
 
+const limitItems = 12;
+
 const CatalogPage = () => {
-  const { isLoader, isError } = useCars();
   const [isScrollUp, setIsScrollUp] = useState(false);
+  const [page, setPage] = useState(1);
+  const { cars, isLoading, isError } = useCars();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCars({ page, limit: limitItems }));
+  }, [dispatch, page]);
 
   const onScrollUp = () => {
     scroll.scrollToTop();
@@ -27,13 +37,21 @@ const CatalogPage = () => {
     }
   };
 
+  const onClick = () => {
+    setPage(prevpage => prevpage + 1);
+    scroll.scrollToBottom();
+  };
+
   return (
     <Container onWheel={onScroll}>
       <CatalogWrap>
-        <CarsList />
+        {cars.length > 0 ? <CarsList /> : <Error>No cars yet</Error>}
+        {!(cars.length % limitItems) && cars.length !== 0 ? (
+          <LoadMoreButton isLoading={isLoading} onClick={onClick} />
+        ) : null}
       </CatalogWrap>
-      {isLoader && <Loader />}
-      {isError && !isLoader && (
+      {isLoading && <Loader />}
+      {isError && !isLoading && (
         <Error>
           <p>OOPS! There was an ERROR!</p>
         </Error>

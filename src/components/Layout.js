@@ -8,7 +8,9 @@ export const Layout = () => {
     <>
       <Header />
       <Suspense fallback={null}>
-        <Outlet />
+        <main>
+          <Outlet />
+        </main>
       </Suspense>
       <Toaster position="top-right" reverseOrder={false} />
     </>

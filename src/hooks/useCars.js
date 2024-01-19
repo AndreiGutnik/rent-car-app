@@ -4,7 +4,7 @@ import { selectCars, selectEroor, selectLoading } from 'redux/cars/cars-slice';
 export const useCars = () => {
   return {
     cars: useSelector(selectCars),
-    isLoader: useSelector(selectLoading),
+    isLoading: useSelector(selectLoading),
     isError: useSelector(selectEroor),
   };
 };

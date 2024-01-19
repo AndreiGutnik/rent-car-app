@@ -57,11 +57,11 @@ export const GlobalStyle = createGlobalStyle`
 		list-style: none;
 	}
 
-	img {
+	/* img {
 		display: block;
 		max-width: 100%;
 		height: auto;
-	}
+	} */
 
 	input,
 	button,

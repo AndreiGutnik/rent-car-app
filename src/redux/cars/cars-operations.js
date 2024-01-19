@@ -5,20 +5,17 @@ axios.defaults.baseURL = 'https://65a8288b94c2c5762da862cc.mockapi.io';
 
 export const fetchCars = createAsyncThunk(
   'cars/getCars',
-  async (_, thunkAPI) => {
+  async (query, thunkAPI) => {
+    const params = new URLSearchParams({
+      page: query.page,
+      limit: query.limit,
+    });
+
     try {
-      const { data } = await axios.get('/api/cars');
+      const { data } = await axios.get(`/api/cars?${params}`);
       return data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
-// const params = new URLSearchParams({
-//   _limit: perPage,
-//   _page: page,
-// });
-
-// const response = await axios.get(
-//   `https://jsonplaceholder.typicode.com/posts?${params}`
-// );

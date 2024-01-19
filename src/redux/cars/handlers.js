@@ -5,7 +5,7 @@ export const handlePanding = state => {
 export const handleFulfilled = (state, action) => {
   state.isLoading = false;
   state.isError = null;
-  state.cars = action.payload;
+  state.cars = [...state.cars, ...action.payload];
 };
 
 export const handleRejected = (state, action) => {
