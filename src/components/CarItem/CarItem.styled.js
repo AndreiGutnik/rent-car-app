@@ -2,8 +2,6 @@ import styled from 'styled-components';
 import { baseTheme } from 'theme';
 
 export const ItemWrap = styled.li`
-  flex-basis: calc((100% - 3 * 29px) / 4);
-
   & img {
     width: auto;
     height: 268px;
@@ -11,6 +9,14 @@ export const ItemWrap = styled.li`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+
+  @media screen and (min-width: 768px) {
+    flex-basis: calc((100% - 28px) / 2);
+  }
+
+  @media screen and (min-width: 1440px) {
+    flex-basis: calc((100% - 3 * 29px) / 4);
   }
 `;
 
@@ -69,7 +75,7 @@ export const Description = styled.div`
 
 export const Button = styled.button`
   width: 100%;
-  padding: 12px 99px;
+  padding: 12px 16px;
   color: ${baseTheme.colors.white};
   font-size: 14px;
   font-weight: 600;

@@ -17,7 +17,7 @@ export default function Loader() {
         left: 0,
         width: '100%',
         height: '100%',
-        background: 'rgba(0, 0, 0, 0.8)',
+        background: `${baseTheme.colors.overlayBcg}`,
         zIndex: 10,
         display: 'flex',
         alignItems: 'center',

@@ -8,6 +8,7 @@ export const baseTheme = {
     orange: '#fe9a00',
     grey: '#8A8A89',
     borderGrey: '#F3F3F2',
+    overlayBcg: 'rgba(18, 20, 23, 0.50)',
     // red: '#EF5050',
     // violet: '#9EBBFF',
     // violet_light: '#D7E3FF',
