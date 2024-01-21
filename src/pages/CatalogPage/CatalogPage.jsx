@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchCars } from 'redux/cars/cars-operations';
 import { LoadMoreButton } from 'components/LoadMoreButton/LoadMoreButton';
+import { Filter } from 'components/Filter/Filter';
 const { Container } = require('components/Container');
 
 const limitItems = 12;
@@ -42,9 +43,12 @@ const CatalogPage = () => {
     scroll.scrollToBottom();
   };
 
+  const brands = [...new Set(cars.map(car => car.make))];
+
   return (
     <Container onWheel={onScroll}>
       <CatalogWrap>
+        <Filter brands={brands} />
         {cars.length > 0 ? (
           <CarsList cars={cars} />
         ) : (
