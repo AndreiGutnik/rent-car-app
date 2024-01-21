@@ -45,7 +45,11 @@ const CatalogPage = () => {
   return (
     <Container onWheel={onScroll}>
       <CatalogWrap>
-        {cars.length > 0 ? <CarsList /> : <Error>No cars yet</Error>}
+        {cars.length > 0 ? (
+          <CarsList cars={cars} />
+        ) : (
+          <Error>No cars yet</Error>
+        )}
         {!(cars.length % limitItems) && cars.length !== 0 ? (
           <LoadMoreButton isLoading={isLoading} onClick={onClick} />
         ) : null}

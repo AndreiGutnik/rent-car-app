@@ -18,10 +18,6 @@ const carsSlice = createSlice({
       .addCase(fetchCars.pending, handleCarsPanding)
       .addCase(fetchCars.fulfilled, handleCarsFulfilled)
       .addCase(fetchCars.rejected, handleCarsRejected);
-
-    // .addCase(updateFavoriteCar.pending, handleCarsPanding)
-    // .addCase(updateFavoriteCar.fulfilled, handleFavoriteCarFulfilled)
-    // .addCase(updateFavoriteCar.rejected, handleCarsRejected);
   },
 });
 

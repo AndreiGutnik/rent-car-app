@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid';
 import {
   InfoWrap,
   ImageThumb,
@@ -29,6 +30,7 @@ export const ModalCard = ({ car }) => {
   const country = addrArray[addrArray.length - 1];
   const city = addrArray[addrArray.length - 2];
 
+  const idOptions = nanoid();
   return (
     <>
       <ImageThumb>
@@ -45,7 +47,6 @@ export const ModalCard = ({ car }) => {
           <p>{country}</p>
           <p>{`Id: ${id}`}</p>
           <p>{`Year: ${year}`}</p>
-          {/* <p>{rentalCompany}</p> */}
           <p>{`Type: ${type}`}</p>
         </MainInfo>
         <MainInfo>
@@ -55,19 +56,19 @@ export const ModalCard = ({ car }) => {
         <Description>{description}</Description>
         <h2>Accessories and functionalities:</h2>
         <AccessoriesWrap>
-          {accessories.map(item => (
-            <p>{item}</p>
+          {accessories.map((item, index) => (
+            <p key={`${idOptions}${index}`}>{item}</p>
           ))}
         </AccessoriesWrap>
         <AccessoriesWrap>
-          {functionalities.map(item => (
-            <p>{item}</p>
+          {functionalities.map((item, index) => (
+            <p key={`${idOptions}0${index}`}>{item}</p>
           ))}
         </AccessoriesWrap>
         <h2>Rental Conditions: </h2>
         <Options>
-          {rentalConditions.split('\n').map(item => (
-            <p>{item}</p>
+          {rentalConditions.split('\n').map((item, index) => (
+            <p key={`${idOptions}00${index}`}>{item}</p>
           ))}
           <p>
             Mileage: <span>{mileage}</span>

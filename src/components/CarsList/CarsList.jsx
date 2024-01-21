@@ -1,10 +1,7 @@
 import { CarItem } from 'components/CarItem/CarItem';
-import { useCars } from 'hooks/useCars';
 import { ListWrap } from './CarsList.styled';
 
-export const CarsList = () => {
-  const { cars } = useCars();
-
+export const CarsList = ({ cars }) => {
   return (
     <ListWrap>
       {cars.map(car => (
