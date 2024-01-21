@@ -1,10 +1,10 @@
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { FilterWrap, Label } from './Filter.styled';
 import Select from 'react-select';
 import { baseTheme } from 'theme';
 
 export const Filter = ({ brands }) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const brandOptions = brands.map(brabd => ({
     value: brabd,
     label: brabd,
