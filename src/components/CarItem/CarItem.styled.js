@@ -29,6 +29,20 @@ export const ImageThumb = styled.div`
   background: ${baseTheme.colors.borderGrey};
 `;
 
+export const ButtonFavorites = styled.button`
+  cursor: pointer;
+
+  & svg {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: ${baseTheme.colors.white};
+  }
+`;
+
 export const InfoWrap = styled.div`
   padding: 14px 0 28px 0;
 `;

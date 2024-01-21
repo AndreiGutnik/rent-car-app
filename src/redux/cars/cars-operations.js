@@ -19,3 +19,16 @@ export const fetchCars = createAsyncThunk(
     }
   }
 );
+
+// export const updateFavoriteCar = createAsyncThunk(
+//   'cars/patchFavoriteCar',
+//   async ({ changeValues, id }, thunkAPI) => {
+//     try {
+//       const { data } = await axios.put(`/api/cars?id=${id}`, changeValues);
+//       console.log(data);
+//       return data;
+//     } catch (e) {
+//       return thunkAPI.rejectWithValue(e.message);
+//     }
+//   }
+// );

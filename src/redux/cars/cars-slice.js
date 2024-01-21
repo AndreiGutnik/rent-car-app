@@ -1,6 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchCars } from './cars-operations';
-import { handleFulfilled, handlePanding, handleRejected } from './handlers';
+import {
+  handleCarsFulfilled,
+  handleCarsPanding,
+  handleCarsRejected,
+} from './handlers';
 
 const carsSlice = createSlice({
   name: 'cars',
@@ -11,9 +15,13 @@ const carsSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      .addCase(fetchCars.pending, handlePanding)
-      .addCase(fetchCars.fulfilled, handleFulfilled)
-      .addCase(fetchCars.rejected, handleRejected);
+      .addCase(fetchCars.pending, handleCarsPanding)
+      .addCase(fetchCars.fulfilled, handleCarsFulfilled)
+      .addCase(fetchCars.rejected, handleCarsRejected);
+
+    // .addCase(updateFavoriteCar.pending, handleCarsPanding)
+    // .addCase(updateFavoriteCar.fulfilled, handleFavoriteCarFulfilled)
+    // .addCase(updateFavoriteCar.rejected, handleCarsRejected);
   },
 });
 
