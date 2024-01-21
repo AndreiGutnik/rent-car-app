@@ -15,8 +15,8 @@ export const App = () => {
           <Route index element={<HomePage />} />
           <Route path={routes.CATALOG} element={<CatalogPage />} />
           <Route path={routes.FAVORITES} element={<FavoritesPage />} />
-          <Route path="*" element={<NotFound />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <GlobalStyle />
     </>

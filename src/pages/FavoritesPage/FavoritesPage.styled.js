@@ -5,12 +5,11 @@ export const FavoritesWrap = styled.div`
 
   & img {
     display: block;
-
     margin: 0 auto;
     max-width: 270px;
 
     @media screen and (min-width: 768px) {
-      max-width: 700px;
+      max-width: 600px;
     }
   }
 
