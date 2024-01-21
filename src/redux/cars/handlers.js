@@ -1,6 +1,5 @@
 export const handleCarsPanding = state => {
   state.isLoading = true;
-  state.cars = [];
 };
 
 export const handleCarsFulfilled = (state, action) => {
