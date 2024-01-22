@@ -60,10 +60,7 @@ export const Filter = ({ brands }) => {
             input: styles => ({
               ...styles,
               margin: 0,
-              paddingTop: '14px',
-              paddingBottom: '14px',
-              paddingLeft: '18px',
-              paddingRight: '18px',
+              padding: '14px 18px 14px 18px',
             }),
             valueContainer: styles => ({
               ...styles,
@@ -84,6 +81,7 @@ export const Filter = ({ brands }) => {
             menu: styles => ({
               ...styles,
               width: '224px',
+              padding: '14px 8px 14px 18px',
             }),
             option: (styles, { isFocused }) => {
               return {
@@ -127,10 +125,7 @@ export const Filter = ({ brands }) => {
             input: styles => ({
               ...styles,
               margin: 0,
-              paddingTop: '14px',
-              paddingBottom: '14px',
-              paddingLeft: '18px',
-              paddingRight: '18px',
+              padding: '14px 18px 14px 18px',
             }),
             valueContainer: styles => ({
               ...styles,
@@ -150,7 +145,8 @@ export const Filter = ({ brands }) => {
             }),
             menu: styles => ({
               ...styles,
-              width: '224px',
+              width: '125px',
+              padding: '14px 8px 14px 18px',
             }),
             option: (styles, { isFocused }) => {
               return {
