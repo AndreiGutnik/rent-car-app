@@ -107,6 +107,7 @@ export const Options = styled.div`
     padding: 7px 14px;
     border-radius: 35px;
     background: #f9f9f9;
+    font-family: 'Montserrat', sans-serif;
     color: #363535;
     font-size: 12px;
     line-height: calc(18 / 12);

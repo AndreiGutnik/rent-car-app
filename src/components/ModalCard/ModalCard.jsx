@@ -31,6 +31,7 @@ export const ModalCard = ({ car }) => {
   const city = addrArray[addrArray.length - 2];
 
   const idOptions = nanoid();
+
   return (
     <>
       <ImageThumb>
@@ -68,7 +69,15 @@ export const ModalCard = ({ car }) => {
         <h2>Rental Conditions: </h2>
         <Options>
           {rentalConditions.split('\n').map((item, index) => (
-            <p key={`${idOptions}00${index}`}>{item}</p>
+            <p key={`${idOptions}00${index}`}>
+              {index !== 0 ? (
+                item
+              ) : (
+                <>
+                  Minimum age: <span>{item.substr(13, 2)}</span>
+                </>
+              )}
+            </p>
           ))}
           <p>
             Mileage: <span>{mileage}</span>

@@ -70,6 +70,8 @@ export const Description = styled.div`
   flex-wrap: wrap;
   align-items: center;
   row-gap: 4px;
+  height: 40px;
+  overflow: hidden;
 
   & p {
     color: rgba(18, 20, 23, 0.5);

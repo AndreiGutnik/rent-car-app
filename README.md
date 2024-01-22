@@ -1,4 +1,4 @@
-# Rental car
+# Rental Car Application
 
 Application for a company that provides car rental services in Ukraine.
 
@@ -6,7 +6,7 @@ Application for a company that provides car rental services in Ukraine.
 
 ## Project Structure
 
-**src**:
+### src:
 
 - **components**: Reusable React components
 - **hooks**: Custom React hooks
@@ -23,7 +23,7 @@ Application for a company that provides car rental services in Ukraine.
 
 ## Used Libraries
 
-**_Frontend_**
+**Frontend**
 
 - **React.js**
 - **React Router**
@@ -37,6 +37,6 @@ Application for a company that provides car rental services in Ukraine.
 - **date-fns**
 - **Axios**
 
-**_Backend_**
+**Backend**
 
 - **Mockapi**

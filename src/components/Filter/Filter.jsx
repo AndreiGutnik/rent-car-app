@@ -1,4 +1,4 @@
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import {
   FilterWrap,
@@ -11,13 +11,16 @@ import {
 } from './Filter.styled';
 import Select from 'react-select';
 import { baseTheme } from 'theme';
+import { useFilterCars } from 'hooks/useFilter';
+import { selectBrand } from 'redux/filter/filter-slice';
 
-export const Filter = ({ brands }) => {
-  // const dispatch = useDispatch();
+export const Filter = ({ brands, onFilterChange }) => {
+  const dispatch = useDispatch();
+  const { selectedBrand } = useFilterCars();
   const [selectedPriceStep, setSelectedPriceStep] = useState(null);
   const [selectedPriceLabel, setSelectedPriceLabel] = useState('');
-  const [mileageFrom, setMileageFrom] = useState('');
-  const [mileageTo, setMileageTo] = useState('');
+  const [mileageCarFrom, setMileageCarFrom] = useState('');
+  const [mileageCarTo, setMileageCarTo] = useState('');
   const brandOptions = brands.map(brabd => ({
     value: brabd,
     label: brabd,
@@ -28,6 +31,17 @@ export const Filter = ({ brands }) => {
   for (let i = 30; i <= 500; i += 10) {
     priceOptions.push({ value: i, label: `${i}` });
   }
+
+  const handleFilterCarClick = () => {
+    const newFilters = {
+      brand: selectedBrand,
+      rentalPrice: selectedPriceStep,
+      mileageFrom: mileageCarFrom,
+      mileageTo: mileageCarTo,
+    };
+
+    onFilterChange(newFilters);
+  };
 
   const onChangePriceStep = selectedOption => {
     setSelectedPriceStep(selectedOption.value);
@@ -42,7 +56,7 @@ export const Filter = ({ brands }) => {
           inputId="selectBrand"
           placeholder="Enter the text"
           isClearable={true}
-          // onChange={selectedOption => console.log(selectedOption)}
+          onChange={selectedOption => dispatch(selectBrand(selectedOption))}
           options={brandOptions}
           styles={{
             control: styles => ({
@@ -169,18 +183,18 @@ export const Filter = ({ brands }) => {
             type="text"
             id="inputMileage"
             placeholder="From"
-            value={mileageFrom}
-            onChange={e => setMileageFrom(e.target.value)}
+            value={mileageCarFrom}
+            onChange={e => setMileageCarFrom(e.target.value)}
           />
           <InputTo
             type="text"
             placeholder="To"
-            value={mileageTo}
-            onChange={e => setMileageTo(e.target.value)}
+            value={mileageCarTo}
+            onChange={e => setMileageCarTo(e.target.value)}
           />
         </InputWrap>
       </SelectWrap>
-      <SearchButton>Search</SearchButton>
+      <SearchButton onClick={handleFilterCarClick}>Search</SearchButton>
     </FilterWrap>
   );
 };

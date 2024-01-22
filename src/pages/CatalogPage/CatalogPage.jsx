@@ -10,6 +10,8 @@ import { useDispatch } from 'react-redux';
 import { fetchCars } from 'redux/cars/cars-operations';
 import { LoadMoreButton } from 'components/LoadMoreButton/LoadMoreButton';
 import { Filter } from 'components/Filter/Filter';
+import { setFilter } from 'redux/filter/filter-slice';
+import { useFilterCars } from 'hooks/useFilter';
 const { Container } = require('components/Container');
 
 const limitItems = 12;
@@ -19,6 +21,8 @@ const CatalogPage = () => {
   const [page, setPage] = useState(1);
   const { cars, isLoading, isError } = useCars();
   const dispatch = useDispatch();
+  const { rentalPrice, mileageFrom, mileageTo, selectedBrand } =
+    useFilterCars();
 
   useEffect(() => {
     dispatch(fetchCars({ page, limit: limitItems }));
@@ -45,11 +49,51 @@ const CatalogPage = () => {
 
   const brands = [...new Set(cars.map(car => car.make))];
 
+  const filteredCars =
+    (cars || []).filter(car => {
+      const brandCondition = !selectedBrand || car.make === selectedBrand.value;
+
+      const priceCondition =
+        !rentalPrice ||
+        (parseFloat(car.rentalPrice.replace('$', '')) >=
+          parseFloat(rentalPrice) &&
+          parseFloat(car.rentalPrice.replace('$', '')) <
+            parseFloat(rentalPrice) + 10);
+
+      const mileageFromCondition =
+        !mileageFrom || parseFloat(car.mileage) >= parseFloat(mileageFrom);
+
+      const mileageToCondition =
+        !mileageTo || parseFloat(car.mileage) <= parseFloat(mileageTo);
+
+      return (
+        brandCondition &&
+        priceCondition &&
+        mileageFromCondition &&
+        mileageToCondition
+      );
+    }) || [];
+
+  const slicedFilteredCars = filteredCars.slice(
+    (page - 1) * limitItems,
+    page * limitItems
+  );
+
   return (
     <Container onWheel={onScroll}>
       <CatalogWrap>
-        <Filter brands={brands} />
-        {cars.length > 0 ? <CarsList /> : <Error>No cars yet</Error>}
+        <Filter
+          brands={brands}
+          onFilterChange={newFilters => {
+            setPage(1);
+            dispatch(setFilter(newFilters));
+          }}
+        />
+        {slicedFilteredCars.length > 0 ? (
+          <CarsList filteredCars={slicedFilteredCars} />
+        ) : (
+          <Error>No cars yet</Error>
+        )}
         {!(cars.length % limitItems) && cars.length !== 0 ? (
           <LoadMoreButton isLoading={isLoading} onClick={onClick} />
         ) : null}

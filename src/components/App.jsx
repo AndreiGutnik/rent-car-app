@@ -1,11 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
 import { routes } from 'routes';
 import { Layout } from './Layout';
-import NotFound from 'pages/NotFoundPage/NotFoundPage';
 import { GlobalStyle } from './GlobalStyle';
-import HomePage from 'pages/HomePage/HomePage';
-import CatalogPage from 'pages/CatalogPage/CatalogPage';
-import FavoritesPage from 'pages/FavoritesPage/FavoritesPage';
+import { lazy } from 'react';
+
+const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
+const CatalogPage = lazy(() => import('../pages/CatalogPage/CatalogPage'));
+const FavoritesPage = lazy(() => import('pages/FavoritesPage/FavoritesPage'));
 
 export const App = () => {
   return (
@@ -15,8 +16,8 @@ export const App = () => {
           <Route index element={<HomePage />} />
           <Route path={routes.CATALOG} element={<CatalogPage />} />
           <Route path={routes.FAVORITES} element={<FavoritesPage />} />
+          <Route path="*" element={<HomePage />} />
         </Route>
-        <Route path="*" element={<NotFound />} />
       </Routes>
       <GlobalStyle />
     </>
