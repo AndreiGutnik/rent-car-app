@@ -74,11 +74,6 @@ const CatalogPage = () => {
       );
     }) || [];
 
-  const slicedFilteredCars = filteredCars.slice(
-    (page - 1) * limitItems,
-    page * limitItems
-  );
-
   return (
     <Container onWheel={onScroll}>
       <CatalogWrap>
@@ -89,8 +84,8 @@ const CatalogPage = () => {
             dispatch(setFilter(newFilters));
           }}
         />
-        {slicedFilteredCars.length > 0 ? (
-          <CarsList filteredCars={slicedFilteredCars} />
+        {filteredCars.length > 0 ? (
+          <CarsList filteredCars={filteredCars} />
         ) : (
           <Error>No cars yet</Error>
         )}
