@@ -1,17 +1,28 @@
 {
   "files": {
     "main.css": "/rent-car-app/static/css/main.cd2e038f.css",
-    "main.js": "/rent-car-app/static/js/main.bac05c95.js",
+    "main.js": "/rent-car-app/static/js/main.944bdd98.js",
+    "static/js/156.c21da334.chunk.js": "/rent-car-app/static/js/156.c21da334.chunk.js",
+    "static/js/101.4b6ee896.chunk.js": "/rent-car-app/static/js/101.4b6ee896.chunk.js",
+    "static/js/256.1bd7263e.chunk.js": "/rent-car-app/static/js/256.1bd7263e.chunk.js",
+    "static/js/722.a97f74f3.chunk.js": "/rent-car-app/static/js/722.a97f74f3.chunk.js",
+    "static/js/811.499c92e8.chunk.js": "/rent-car-app/static/js/811.499c92e8.chunk.js",
+    "static/js/842.a6530fa7.chunk.js": "/rent-car-app/static/js/842.a6530fa7.chunk.js",
     "static/media/no data.png": "/rent-car-app/static/media/no data.f9659e5a9cd3d6c97bbe.png",
     "static/media/logo.png": "/rent-car-app/static/media/logo.e8e1d3ccdfdd7d3fd543.png",
-    "static/media/404NotFound.jpg": "/rent-car-app/static/media/404NotFound.e8bcac90997f986f822f.jpg",
     "static/media/iconSprite.svg": "/rent-car-app/static/media/iconSprite.4e7c07b3898e5fb20bb6e633e469cc1c.svg",
     "index.html": "/rent-car-app/index.html",
     "main.cd2e038f.css.map": "/rent-car-app/static/css/main.cd2e038f.css.map",
-    "main.bac05c95.js.map": "/rent-car-app/static/js/main.bac05c95.js.map"
+    "main.944bdd98.js.map": "/rent-car-app/static/js/main.944bdd98.js.map",
+    "156.c21da334.chunk.js.map": "/rent-car-app/static/js/156.c21da334.chunk.js.map",
+    "101.4b6ee896.chunk.js.map": "/rent-car-app/static/js/101.4b6ee896.chunk.js.map",
+    "256.1bd7263e.chunk.js.map": "/rent-car-app/static/js/256.1bd7263e.chunk.js.map",
+    "722.a97f74f3.chunk.js.map": "/rent-car-app/static/js/722.a97f74f3.chunk.js.map",
+    "811.499c92e8.chunk.js.map": "/rent-car-app/static/js/811.499c92e8.chunk.js.map",
+    "842.a6530fa7.chunk.js.map": "/rent-car-app/static/js/842.a6530fa7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cd2e038f.css",
-    "static/js/main.bac05c95.js"
+    "static/js/main.944bdd98.js"
   ]
 }
